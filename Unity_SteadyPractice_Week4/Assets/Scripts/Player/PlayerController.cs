@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
-    public float jumpPower;
+    private float moveSpeed;
+    private float jumpPower;
     private Vector2 curMovementInput;
     public LayerMask groundLayerMask;
 
-    private float bottomOffset;
 
 
     [Header("Look")]
@@ -30,4 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rigidbody;
     public CapsuleCollider _capsuleCollider;
+
+    public  void Init()
+    {
+
+    }
 }
