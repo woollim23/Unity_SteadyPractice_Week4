@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Singletone<T> : MonoBehaviour where T : MonoBehaviour
 {
@@ -11,16 +11,16 @@ public class Singletone<T> : MonoBehaviour where T : MonoBehaviour
             if(_instance == null)
             {
                 _instance = (T)FindObjectOfType(typeof(T));
-                //  ¾À(Scene)¿¡ Á¸ÀçÇÏ´Â Æ¯Á¤ Å¬·¡½ºÀÇ Ã¹ ¹øÂ° ÀÎ½ºÅÏ½º¸¦ Ã£¾Æ ¹İÈ¯
-                // Æ¯Á¤ Å¸ÀÔÀÇ ¿ÀºêÁ§Æ®¸¦ Ã£À» ¶§ »ç¿ëÇÏ´Â ¸Ş¼­µå
-                if (_instance == null) // ¾À¿¡ ¾ø´Ù¸é
+                //  ì”¬(Scene)ì— ì¡´ì¬í•˜ëŠ” íŠ¹ì • í´ë˜ìŠ¤ì˜ ì²« ë²ˆì§¸ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì°¾ì•„ ë°˜í™˜
+                // íŠ¹ì • íƒ€ì…ì˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì„ ë•Œ ì‚¬ìš©í•˜ëŠ” ë©”ì„œë“œ
+                if (_instance == null) // ì”¬ì— ì—†ë‹¤ë©´
                 {
                     string tName = typeof(T).ToString(); 
-                    // Á¦³×¸¯ Å¸ÀÔ TÀÇ ÀÌ¸§À» ¹®ÀÚ¿­·Î ¾ò´Â ÄÚµå
+                    // ì œë„¤ë¦­ íƒ€ì… Tì˜ ì´ë¦„ì„ ë¬¸ìì—´ë¡œ ì–»ëŠ” ì½”ë“œ
                     var singletoneObj = new GameObject(tName); 
-                    // tName ¹®ÀÚ¿­À» ÀÌ¸§À¸·Î °¡Áø »õ·Î¿î GameObject¸¦ »ı¼º
+                    // tName ë¬¸ìì—´ì„ ì´ë¦„ìœ¼ë¡œ ê°€ì§„ ìƒˆë¡œìš´ GameObjectë¥¼ ìƒì„±
                     _instance = singletoneObj.AddComponent<T>();
-                    // singletoneObj ¿ÀºêÁ§Æ®¿¡ Á¦³×¸¯ Å¸ÀÔ TÀÇ ÄÄÆ÷³ÍÆ®¸¦ Ãß°¡ÇÏ°í, ±× ÂüÁ¶¸¦ _instance¿¡ ÇÒ´ç
+                    // singletoneObj ì˜¤ë¸Œì íŠ¸ì— ì œë„¤ë¦­ íƒ€ì… Tì˜ ì»´í¬ë„ŒíŠ¸ë¥¼ ì¶”ê°€í•˜ê³ , ê·¸ ì°¸ì¡°ë¥¼ _instanceì— í• ë‹¹
                 }
             }
 
