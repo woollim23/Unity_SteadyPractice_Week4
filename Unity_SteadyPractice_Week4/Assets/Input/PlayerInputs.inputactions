@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "PlayerInputs",
     "maps": [
         {
             "name": "Player",
@@ -45,6 +45,15 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "cf17b9f1-1bac-48dd-8830-3a7ff6027641",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "ec600a37-6e3b-4c62-84ed-3b308303933e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -159,6 +168,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e717dd55-0b89-4f44-b111-d8b62b36a880",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
