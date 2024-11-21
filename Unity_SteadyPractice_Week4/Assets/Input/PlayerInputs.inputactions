@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Harvest",
                     "type": "Button",
                     "id": "cf17b9f1-1bac-48dd-8830-3a7ff6027641",
                     "expectedControlType": "Button",
@@ -156,7 +156,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Harvest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

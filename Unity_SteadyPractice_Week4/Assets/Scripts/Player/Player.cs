@@ -8,7 +8,7 @@ using UnityEngine;
 public class Player : Singletone<Player>
 {
     [field: SerializeField] public PlayerSO Data { get; private set; }
-    [field: SerializeField] public ItemData itemData { get; private set; }
+    //[field: SerializeField] public ItemData itemData { get; private set; }
 
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
@@ -18,7 +18,10 @@ public class Player : Singletone<Player>
 
     public PlayerController Input { get; private set; }
     public PlayerStateMachine StateMachine { get; private set; }
-    
+    public ForceReceiver ForceReceiver { get; private set; }
+
+    public float Stamina { get; private set; }
+
     public Action addItem;
 
     private void Awake()
@@ -29,6 +32,9 @@ public class Player : Singletone<Player>
 
         Input = GetComponent<PlayerController>();
         StateMachine = new PlayerStateMachine(this);
+        ForceReceiver = GetComponent<ForceReceiver>();
+
+        Stamina = Data.Stamina;
     }
 
     private void Start()

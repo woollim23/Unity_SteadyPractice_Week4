@@ -13,7 +13,7 @@ public class PlayerAnimationData
     [SerializeField] private string jumpParameterName = "Jump";
     [SerializeField] private string fallParameterName = "Fall";
 
-    [SerializeField] private string attackParameterName = "Attack";
+    [SerializeField] private string harvestParameterName = "@Harvest";
 
     public int GroundParameterHash { get; private set; }
     public int IdleParameterHash { get; private set; }
@@ -25,7 +25,7 @@ public class PlayerAnimationData
     public int JumpParameterHash { get; private set; }
     public int FallParameterHash { get; private set; }
 
-    public int AttackParameterHash { get; private set; }
+    public int HarvestParameterHash { get; private set; }
 
     public void Initialize()
     {
@@ -38,7 +38,7 @@ public class PlayerAnimationData
         JumpParameterHash = Animator.StringToHash(jumpParameterName);
         FallParameterHash = Animator.StringToHash(fallParameterName);
 
-        AttackParameterHash = Animator.StringToHash(attackParameterName);
+        HarvestParameterHash = Animator.StringToHash(harvestParameterName);
     }
 
 }

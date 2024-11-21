@@ -45,8 +45,8 @@ public class PlayerBaseState : IState
         input.playerActions.Movement.canceled += OnMovementCanceled;
         input.playerActions.Run.canceled += OnRunStarted;
         input.playerActions.Jump.started += OnJumpStarted;
-        input.playerActions.Attack.performed += OnAttackPerformed;
-        input.playerActions.Attack.canceled += OnAttackCanceled;
+        input.playerActions.Harvest.performed += OnHarvestPerformed;
+        input.playerActions.Harvest.canceled += OnHarvestCanceled;
         input.playerActions.Inventory.performed += OnInventory;
     }
 
@@ -56,8 +56,8 @@ public class PlayerBaseState : IState
         input.playerActions.Movement.canceled -= OnMovementCanceled;
         input.playerActions.Run.canceled -= OnRunStarted;
         input.playerActions.Jump.started -= OnJumpStarted;
-        input.playerActions.Attack.performed -= OnAttackPerformed;
-        input.playerActions.Attack.canceled -= OnAttackCanceled;
+        input.playerActions.Harvest.performed -= OnHarvestPerformed;
+        input.playerActions.Harvest.canceled -= OnHarvestCanceled;
         input.playerActions.Inventory.performed -= OnInventory;
     }
 
@@ -76,12 +76,12 @@ public class PlayerBaseState : IState
 
     }
 
-    protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
+    protected virtual void OnHarvestPerformed(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = true;
     }
 
-    protected virtual void OnAttackCanceled(InputAction.CallbackContext context)
+    protected virtual void OnHarvestCanceled(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = false;
     }
@@ -150,6 +150,11 @@ public class PlayerBaseState : IState
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, stateMachine.RotationDamping * Time.deltaTime);
         }
+    }
+
+    protected void ForceMove()
+    {
+        stateMachine.Player.Controller.Move(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
     }
 
     protected float GetNormalizedTime(Animator animator, string tag)
